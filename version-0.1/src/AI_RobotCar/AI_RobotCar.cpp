@@ -26,18 +26,18 @@ void AI_DCMotor::setDir(byte DIR){
   if(DIR){  //forward
     digitalWrite(_pinA,HIGH);
     digitalWrite(_pinB,LOW);
-    //Serial.println(getName()+ " setDir(Forward) ");
+    Serial.println(getName()+ " setDir(Forward) ");
   }else{    //reverse
     digitalWrite(_pinA,LOW);
     digitalWrite(_pinB,HIGH);
-    //Serial.println(getName()+ " setDir(Reverse) ");
+    Serial.println(getName()+ " setDir(Reverse) ");
   }
 }
 
 void AI_DCMotor::setSpeed(byte speed){
   byte pwm = map(speed,0,100,0,255);
   analogWrite(_pinEN,pwm);
-  //Serial.println(getName()+ " setSpeed("+String(pwm)+") ");
+  Serial.println(getName()+ " setSpeed("+String(pwm)+") ");
 }
 
 String AI_DCMotor::getName(){
@@ -56,18 +56,6 @@ AI_RobotCar::AI_RobotCar(
     _mL(pin1_A,pin1_B,pin1_EN), 
     _mR(pin2_A,pin2_B,pin2_EN){
       this->_name = name;
-}
-
-AI_RobotCar::AI_RobotCar(
-    int pin1_A, 
-    int pin1_B, 
-    int pin1_EN, 
-    int pin2_A, 
-    int pin2_B, 
-    int pin2_EN
-    ) : 
-    _mL(pin1_A,pin1_B,pin1_EN), 
-    _mR(pin2_A,pin2_B,pin2_EN){
 }
 
 String AI_RobotCar::getName(){
@@ -91,9 +79,8 @@ void AI_RobotCar::control(int X,int Y){
    * 0-100 forward
    */
   
-  int X0 = 591;
-  int Y0 = 580;
-  //_th 30
+  int X0 = 580;
+  int Y0 = 590;
   
   if(Y<Y0-_th){
     _speed = map(Y,Y0-_th,0,0,-100);
@@ -164,7 +151,7 @@ void AI_RobotCar::control(int X,int Y){
     _dirR=!_dirR;
     _speedL=abs(_speedL);
     _speedR=abs(_speedR);
-    //Serial.println("Speed negative : " + String(_speed));
+    Serial.println("Speed negative : " + String(_speed));
   }
   
   _mL.setDir(_dirL);

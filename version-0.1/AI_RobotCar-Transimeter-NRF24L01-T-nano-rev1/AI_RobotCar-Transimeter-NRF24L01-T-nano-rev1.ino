@@ -15,11 +15,11 @@ struct dataStream{
 dataStream joyStick;
 
 void setup() {
-  Serial.begin(9600);
+  //Serial.begin(9600);
   pinMode(2,INPUT_PULLUP);
   radio.begin();
   radio.openWritingPipe(address);
-  radio.setPALevel(RF24_PA_MIN);
+  radio.setPALevel(RF24_PA_LOW);
   radio.stopListening();
 
   
