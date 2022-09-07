@@ -1,3 +1,10 @@
+/*
+* ApaITU channel : https://www.youtube.com/channel/UChBQyf27VmOEk8uWdQYuX-Q
+* AI_RobotCar.cpp
+* September 2022
+* Version 01b
+*/
+
 #include <Arduino.h>
 #include "AI_RobotCar.h"
 
