@@ -27,7 +27,7 @@ class AI_RobotCar{
   int _speedR;
   int _dirL;
   int _dirR;
-  int _th =80;
+  int _th =30;
   
   public:
   AI_RobotCar(
@@ -38,6 +38,15 @@ class AI_RobotCar{
     int pin2_B, 
     int pin2_EN, 
     String name
+    );// : mL(pin1_A,pin1_B,pin1_EN), mR(pin2_A,pin2_B,pin2_EN);
+    
+  AI_RobotCar(
+    int pin1_A, 
+    int pin1_B, 
+    int pin1_EN, 
+    int pin2_A, 
+    int pin2_B, 
+    int pin2_EN
     );// : mL(pin1_A,pin1_B,pin1_EN), mR(pin2_A,pin2_B,pin2_EN);
   String getName();
   void setDir(int dirL, int dirR);
